@@ -34,8 +34,13 @@ function ProdukInfo(proops){
           This Yeezy 350 V2 is composed of a cinder Primeknit upper with a tonal side stripe. 
           A cinder Boost cushioned midsole sole and gold outsole completes the design. These sneakers released in March of 2020 and retailed for $220.
         </p>
+        <a onClick={(e) =>TambahCart(name,e)} href="#addcart">Add to Cart</a>
       </div>
     </div>
     );
+}
+
+function TambahCart(e){
+  return console.log("Membeli Produk ..." +e)
 }
 export default App;
