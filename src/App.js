@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="Parentbox">
       <FotoProduk/>
-      <ProdukInfo name="Adidas Yeezy Boost 350 V2 Cinder" category="Lifestyle"/>
+      <ProdukInfo isDiscount="yes" name="Adidas Yeezy Boost 350 V2 Cinder" category="Lifestyle"/>
     </div>
   );
 }
@@ -19,8 +19,28 @@ function FotoProduk(){
   );
 }
 
+function CheckDiscount(props){
+  const { isDiscount } = props;
+  if(isDiscount === "yes"){
+    return (
+      <p>Diskon 50% off</p>
+    );
+  }
+  else if(isDiscount ==="coming") {
+    return(
+      <p>Akan ada diskon ...</p>
+    );
+  }
+  else
+  {
+    return (
+      <p>Belum ada diskon</p>
+    );
+  }
+}
+
 function ProdukInfo(proops){
-  const {category, name} =proops;
+  const {category, name, isDiscount} =proops;
   const price = 320;
    return (
     <div>
@@ -28,6 +48,7 @@ function ProdukInfo(proops){
         <p className="Cate">{category}</p>
         <h1 className="Tittle">{name}</h1>
         <p className="Price">$ {price}</p>
+        <CheckDiscount isDiscount={isDiscount}/>
         <p className="Info">
           Yeezy adds another colorway of its most popular design with the adidas Yeezy 350 Cinder, now available on Shoes Room. 
           This 350 V2 stays true to Yeezy’s signature palette, sporting dark earth tones that provide a natural feeling. 
