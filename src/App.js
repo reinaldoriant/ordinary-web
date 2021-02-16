@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ReviewItems from './Reviews'
+import PropTypes from 'prop-types'
 
 function App() {
   return (
@@ -21,10 +22,10 @@ function FotoProduk() {
 }
 
 function CheckDiscount(props) {
-  const { isDiscount } = props;
+  const { isDiscount, discount } = props;
   if (isDiscount === "yes") {
     return (
-      <p>Diskon 50% off</p>
+      <p>Diskon {discount}% off</p>
     );
   }
   else if (isDiscount === "coming") {
@@ -52,7 +53,7 @@ function ProdukInfo(proops) {
         <p className="Cate">{category}</p>
         <h1 className="Tittle">{name}</h1>
         <p className="Price">$ {price}</p>
-        <CheckDiscount isDiscount={isDiscount} />
+        <CheckDiscount isDiscount={isDiscount} discount={70} />
         <p className="Info">
           Yeezy adds another colorway of its most popular design with the adidas Yeezy 350 Cinder, now available on Shoes Room.
           This 350 V2 stays true to Yeezy’s signature palette, sporting dark earth tones that provide a natural feeling.
@@ -71,4 +72,8 @@ function ProdukInfo(proops) {
 function TambahCart(e) {
   return console.log("Membeli Produk ..." + e)
 }
+
+CheckDiscount.propTypes ={
+  discount: PropTypes.number.isRequired
+};
 export default App;
